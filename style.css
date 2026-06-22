@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto 100px;
+
+    grid-template-areas:
+        "nav"
+        "main"
+        "footer";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.main {
+    grid-area: main;
+
+}
+
+.footer {
+    grid-area: footer;
+    background-color: black;
+}
+
+/* NAV-BAR */
+
+
+.left-nav {
+    display: flex;
+}
+
+.middle-nav {
+    display: flex;
+}
+
+.middle-nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.middle-nav a:hover {
+    color: blue;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+ul {
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+
+.right-nav {
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-nav button {
+    border-radius: 7px;
+    width: 70px;
+    height: 35px;
+    background-color: white;
+    color: blue;
+}
+
+/* main-section */
+
+.hero-section{
+    display: flex;
+    width: 100%;
+    align-items: center; 
+    padding: 25px;
+    background: linear-gradient( #eef4ff 100%);
+
+}
+
+.hero-content{
+    flex: 1;
+    margin-right: 40px;
+}
+
+.hero-content h1{
+    color:#1a3b8d;
+    font-weight: 800;
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-content p{
+    max-width: 400px;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+.btn-group{
+    display: flex;
+    gap: 20px;
+}
+
+.btn{
+    border: 2px solid rgb(62, 27, 160) ;
+    border-radius: 7px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn:hover{
+    background-color: #122a66;
+    box-shadow: 0 4px 12px rgba(26, 59, 141, 0.3);
+    color: white;
+}
+
+.btn-group a{
+    text-decoration: none;
+    color:black;
+}
+
+.illustration-section{
+    flex: 1;
+}
+.illustration-section img{
+    height: 250px; ;
+}

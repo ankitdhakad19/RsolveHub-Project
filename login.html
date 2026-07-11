@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background-image: url("loginBackgrount.jpeg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 12%;
+        }
+
+
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: auto;
+            background-color: #eef2ff;
+            color: #3b82f6;
+        }
+
+        .login {
+            width: 300px;
+            height: 500px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        .login h2 {
+            text-align: center;
+        }
+
+        .login p {
+            text-align: center;
+        }
+
+        .login strong {
+            color: #3b82f6;
+        }
+
+        .loginBtn {
+            width: 100%;
+            height: 45px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .loginBtn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+
+        .input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, .3);
+        }
+
+
+        .a1 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .a1 input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        
+        .creatAcc {
+            height: 35px;
+            border: 2px solid blue;
+            margin-top: 20px;
+            color: #3b82f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        @media (max-width:768px) {
+
+            body {
+                justify-content: center;
+                padding: 20px;
+                background-image: none;
+                background-color: #2563eb;
+            }
+
+            .login {
+                width: 100%;
+                max-width: 350px;
+                right: auto;
+                top: auto;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+
+        <div class="icon-wrapper">
+
+        </div>
+
+        <h2>Welcome Back </h2>
+        <p> Login to your <strong>ResolveHub </strong> account</p> <br>
+
+        <input class="input" type="text" placeholder=" Email or Username"><br><br>
+
+
+        <input class="input" type="password" placeholder="Enter password">
+        <BR></BR>
+
+        <div class="a1">
+            <div class="remember">
+                <input type="checkbox">
+                <label for="checkbox">Remember Me</label>
+            </div>
+            <a href="">Forgot password</a>
+        </div>
+
+
+        <div class="loginBtn">
+            ➡️ LOGIN
+        </div>
+
+
+        <div class="creatAcc">
+            Create New Account
+        </div>
+
+    </div>
+
+</body>
+
+</html>

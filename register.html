@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login </title>
+    <title>Register</title>
 
     <style>
         * {
@@ -132,6 +132,10 @@
             border-radius: 5px;
         }
 
+        .creatAcc a {
+            text-decoration: none;
+        }
+
         @media (max-width:768px) {
 
             body {
@@ -148,11 +152,6 @@
                 top: auto;
                 position: relative;
             }
-
-            .creatAcc a {
-                text-decoration: none;
-            }
-
         }
     </style>
 </head>
@@ -164,46 +163,47 @@
 
         </div>
 
-        <h2>Welcome Back </h2>
-        <p> Login to your <strong>ResolveHub </strong> account</p> <br>
+        <!-- <h2>Welcome Back </h2> -->
+        <p> Register to your <strong>ResolveHub </strong> account</p> <br>
 
-        <!-- <input class="input" id="name" type="text" placeholder="Enter your Name.."><br><br> -->
+        <input class="input" id="name" type="text" placeholder="Enter your Name.."><br><br>
 
         <input class="input" id="email" type="text" placeholder=" Email "><br><br>
 
 
         <input class="input" id="password" type="password" placeholder="Enter password">
+        <BR></BR>
 
-        <div class="a1">
+        <!-- <div class="a1">
             <div class="remember">
                 <input type="checkbox">
                 <label for="checkbox">Remember Me</label>
             </div>
             <a href="">Forgot password</a>
-        </div>
+        </div> -->
 
-        <button onclick="loginUser()" class="loginBtn">
-            ➡️ LOGIN
+        <button onclick="registerUser()"  class="loginBtn">
+            ➡️ Register
         </button>
         
 
         <div class="creatAcc">
-            <a href="register.html">Create New Account</a>
+            <a href="login.html"> Already Have Account </a>
         </div>
 
     </div>
 
     <script>
 
-        async function loginUser() {
+        async function registerUser() {
 
             const email = document.getElementById("email").value;
 
             const password = document.getElementById("password").value;
 
-            // const name = document.getElementById("name").value;
+            const name = document.getElementById("name").value
 
-            const response = await fetch("http://localhost:3000/Login", {
+            const response = await fetch("http://localhost:3000/Register", {
 
                 method: "POST",
 
@@ -213,34 +213,24 @@
 
                 body: JSON.stringify({
                     email,
-                    password
+                    password,
+                    name
                 })
 
             });
 
             const data = await response.json();
 
+            alert(data.message);
+
             if (response.ok) {
-
-                // localStorage.setItem("token", data.token);
-                localStorage.setItem("user", JSON.stringify(data.user));
-
-
-                alert("Login Successful");
-
-                window.location.href = "dashboard.html";
-
-            }
-
-            else {
-
-                alert(data.message);
-
+                window.location.href = "login.html";
             }
 
         }
 
     </script>
+
 
 </body>
 

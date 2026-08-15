@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ResolveHub</title>
+
+    <!-- <link rel="stylesheet" href="admin.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            background: #F5F7FB;
+        }
+
+        /* Sidebar */
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #0A5CFF;
+            color: white;
+            position: fixed;
+            padding: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .logo i {
+            font-size: 28px;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+
+        .sidebar ul li:hover,
+        .sidebar ul li.active {
+            background: white;
+            color: #0A5CFF;
+        }
+
+        /* Main */
+
+        .main {
+            width: calc(100% - 250px);
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        /* Header */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 18px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        }
+
+        header h1 {
+            color: #0A5CFF;
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top input {
+            padding: 12px 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+        }
+
+        .top i {
+            font-size: 22px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .top img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        /* Cards */
+
+        .cards {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            border-top: 4px solid #0A5CFF;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 35px;
+            color: #0A5CFF;
+        }
+
+        .card h2 {
+            margin: 15px 0;
+            font-size: 34px;
+        }
+
+        /* Table */
+
+        .table-box {
+            background: white;
+            margin-top: 35px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .table-box h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #0A5CFF;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        button {
+            background: #0A5CFF;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0847CC;
+        }
+
+        /* Status */
+
+        .pending {
+            background: #FFF3CD;
+            color: #B45309;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .progress {
+            background: #DBEAFE;
+            color: #2563EB;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .resolved {
+            background: #DCFCE7;
+            color: #15803D;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        /* Details */
+
+        .details {
+            margin-top: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .details h2 {
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin: 12px 0;
+        }
+
+        .details select {
+            margin-top: 10px;
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: gray;
+        }
+
+        /* Responsive */
+
+        @media(max-width:1000px) {
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            .sidebar {
+                width: 80px;
+                padding: 15px;
+            }
+
+            .sidebar h2,
+            .sidebar li {
+                font-size: 0;
+            }
+
+            .sidebar i {
+                font-size: 22px;
+            }
+
+            .main {
+                margin-left: 80px;
+                width: calc(100% - 80px);
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .top input {
+                width: 180px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>ResolveHub</h2>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-list"></i>
+                All Complaints
+            </li>
+
+            <li>
+                <i class="fa-solid fa-building"></i>
+                Departments
+            </li>
+
+            <li>
+                <i class="fa-solid fa-chart-column"></i>
+                Reports
+            </li>
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <header>
+
+            <h1>Complaint Management Portal</h1>
+
+            <div class="top">
+
+                <input type="text" placeholder="Search Complaint">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="https://i.pravatar.cc/45">
+
+            </div>
+
+        </header>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-file-circle-plus"></i>
+
+                <h2>120</h2>
+
+                <p>Total Complaints</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-spinner"></i>
+
+                <h2>28</h2>
+
+                <p>Pending</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h2>80</h2>
+
+                <p>Resolved</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <h2>12</h2>
+
+                <p>Escalated</p>
+
+            </div>
+
+        </div>
+
+        <!-- Complaint Table -->
+
+        <div class="table-box">
+
+            <h2>All Complaints</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Category</th>
+
+                        <th>Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody class="complaintList">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Complaint Details -->
+
+        <div class="details">
+
+            
+        </div>
+
+        <footer>
+
+            © 2026 ResolveHub | Complaint Management Portal
+
+        </footer>
+
+    </div>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

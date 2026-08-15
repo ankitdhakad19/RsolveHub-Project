@@ -1,0 +1,27 @@
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"></stop>
+      <stop offset="100%" stop-color="#7C3AED"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield -->
+  <path d="M30 8 L48 14 V28 C48 39 40 47 30 52 C20 47 12 39 12 28 V14 Z" fill="url(#grad)"></path>
+
+  <!-- Chat Bubble -->
+  <path d="M22 20 H38 C40 20 41 21 41 23 V30 C41 32 40 33 38 33 H29 L24 38 V33 H22
+           C20 33 19 32 19 30 V23 C19 21 20 20 22 20 Z" fill="white"></path>
+
+  <!-- Checkmark -->
+  <path d="M25 27 L29 31 L36 24" stroke="#2563EB" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Text -->
+  <text x="62" y="28" font-family="Poppins, Arial, sans-serif" font-size="18" font-weight="700" fill="#1E293B">
+        Complaint
+  </text>
+
+  <text x="62" y="48" font-family="Poppins, Arial, sans-serif" font-size="14" font-weight="500" fill="#64748B">
+        Management Portal
+  </text>
+</svg>

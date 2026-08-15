@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveHub | Dashboard</title>
+
+    
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fc;
+            display: flex;
+        }
+
+        /* =========================
+Sidebar
+========================= */
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #0A4DCC;
+            color: #fff;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .logo i {
+            font-size: 30px;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: .3s;
+        }
+
+        .sidebar ul li:hover,
+        .sidebar ul li.active {
+            background: white;
+            color: #0A5CFF;
+        }
+
+        /* =========================Main========================= */
+
+        .main {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 30px;
+        }
+
+        /* =========================Top Bar========================= */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search {
+            width: 380px;
+            background: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        }
+
+        .search input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .top-right i {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .profile h4 {
+            font-size: 15px;
+        }
+
+        /* =========================Hero========================= */
+
+        .hero {
+            background: linear-gradient(135deg, #0A5CFF, #3B82F6);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+        }
+
+        .hero p {
+            margin: 15px 0;
+        }
+
+        .hero button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: #0A5CFF;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .hero img {
+            width: 250px;
+        }
+
+        /* =========================Cards========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 35px;
+            color: #0A5CFF;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 34px;
+        }
+
+        .card p {
+            color: gray;
+        }
+
+        /* =========================Actions========================= */
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .action {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .action:hover {
+            background: #0A5CFF;
+            color: white;
+        }
+
+        .action i {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        /* =========================Table========================= */
+
+        .table-section {
+            margin-top: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .table-section h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #0A5CFF;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        table button {
+            background: #0A5CFF;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .pending {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        .progress {
+            color: #2196f3;
+            font-weight: 600;
+        }
+
+        .resolved {
+            color: green;
+            font-weight: 600;
+        }
+
+        /* =========================Notification========================= */
+
+        .notification {
+            margin-top: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .notification h2 {
+            margin-bottom: 20px;
+        }
+
+        .note {
+            padding: 15px;
+            background: #eef4ff;
+            margin-bottom: 12px;
+            border-left: 5px solid #0A5CFF;
+            border-radius: 10px;
+        }
+
+        .details {
+            margin-top: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .details h2 {
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin: 12px 0;
+        }
+
+        /* =========================Footer========================= */
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: gray;
+            padding-bottom: 20px;
+        }
+
+        /* =========================Responsive========================= */
+
+        @media(max-width:1000px) {
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                margin-top: 20px;
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            .sidebar {
+                width: 80px;
+                padding: 15px;
+            }
+
+            .sidebar h2,
+            .sidebar span {
+                display: none;
+            }
+
+            .main {
+                margin-left: 80px;
+                width: calc(100% - 80px);
+                padding: 15px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .search {
+                width: 200px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>ResolveHub</h2>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <span id="newComplaint">New Complaint</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-list-check"></i>
+                <span id="myComplain">My Complaints</span>
+            </li>
+
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+
+        <header>
+
+            <div class="search">
+
+                <input type="text" placeholder="Search complaint...">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="top-right">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <div class="profile">
+
+                    <img src="https://i.pravatar.cc/40" alt="">
+
+                    <div>
+
+                        <h4>Ankit</h4>
+
+                        <p>Citizen</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+
+                <h1>Welcome Back 👋</h1>
+
+                <p>
+                    Manage your complaints easily and track every update in one place.
+                </p>
+
+                <button id="newComplaint1">Submit Complaint</button>
+
+            </div>
+
+            <img src="https://undraw.co/api/illustrations" alt="">
+
+        </section>
+
+        <!-- CARDS -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-file-circle-plus"></i>
+
+                <h2 id="Total">0</h2>
+
+                <p>Total Complaints</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-spinner"></i>
+
+                <h2 id="pending">0</h2>
+
+                <p>Pending</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h2 id="resolved">0</h2>
+
+                <p>Resolved</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <h2 id="progress">0</h2>
+
+                <p>In progress</p>
+
+            </div>
+
+        </section>
+
+        <!-- QUICK ACTION -->
+
+        <section class="actions">
+
+            <div class="action">
+
+                <i class="fa-solid fa-plus"></i>
+
+                <h3><a href="complainForm.html">New Complaint</a></h3>
+
+            </div>
+
+            <div class="action">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>Track Status</h3>
+
+            </div>
+
+            <div class="action">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <h3>Contact Support</h3>
+
+            </div>
+
+        </section>
+
+        <!-- TABLE -->
+
+        <section class="table-section">
+
+            <h2>Recent Complaints</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Category</th>
+
+                        <th>Status</th>
+
+                        <th>Date</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="complaintList">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- NOTIFICATION -->
+
+        <div class="details">
+
+            
+        </div>
+        <!-- FOOTER -->
+
+        <footer>
+
+            © 2026 ResolveHub | Complaint Management Portal
+
+        </footer>
+
+        <script defer src="dashboard.js"></script>
+
+    </div>
+
+       
+</body>
+
+</html>

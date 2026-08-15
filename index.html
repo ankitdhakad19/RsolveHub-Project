@@ -15,7 +15,7 @@
         <!-- NAV-BAR -->
         <div class="nav">
             <div class="left-nav">
-                <ul>
+                <ul id="ulLogo">
                     <li><svg width="250" height="200" viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
 
                             <defs>
@@ -75,18 +75,18 @@
             </div>
 
             <div class="middle-nav">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/track">Track Complaint</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
+                <ul id="ul1">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#footer">About Us</a></li>
+                    <li><a href="#footer">Services</a></li>
+                    <!-- <li><a href="#footer">Track Complaint</a></li> -->
+                    <li><a href="#footer">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="right-nav">
                 <button><a href="login.html">Login</a></button>
-                <button>Register</button>
+                <button><a href="register.html">Register</a></button>
             </div>
         </div>
 
@@ -99,7 +99,7 @@
                     <h1>Complaint<br>Management Portal</h1>
                     <p>A platform to register your complain and track their status on real time.</p>
 
-                    <div class="btn-group">
+                    <!-- <div class="btn-group">
                         <a href="complainForm.html" class="btn ">
                             <span>👤</span>
                             Submit Complaint
@@ -108,7 +108,7 @@
                             <span>🔍</span>
                             Track Complaint
                         </a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="illustration-section">
@@ -123,7 +123,7 @@
                     <i class="fa-solid fa-clipboard-list fa-3x" style="color: rgb(10, 32, 131);"></i>
                     <div>
                         <p>Total Complain</p>
-                        <h3>12,457</h3>
+                        <h3 id="Total">12,457</h3>
                         <p>All Time Complaint</p>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     <i class="fa-solid fa-circle-check fa-3x" style="color: rgb(16, 163, 118);"></i>
                     <div>
                         <p>Resolved Complain</p>
-                        <h3>10,417</h3>
+                        <h3 id="resolved">10,417</h3>
                         <p>Successfully Resolved</p>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                     <i class="fa-solid fa-clock fa-3x" style="color: rgb(231, 130, 64);"></i>
                     <div>
                         <p>Pending Complain</p>
-                        <h3>2,040</h3>
+                        <h3 id="pending">2,040</h3>
                         <p>Awating Resolution</p>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                 <!--+ Feature 2 -->
                 <div class="feature-item">
                     <div class="icon-wrapper green">
-                       <i class="fa-solid fa-magnifying-glass fa-2x" style="color: rgb(21, 161, 119);"></i>
+                        <i class="fa-solid fa-magnifying-glass fa-2x" style="color: rgb(21, 161, 119);"></i>
                     </div>
                     <div class="content">
                         <h3>Real-time Tracking</h3>
@@ -193,59 +193,158 @@
                 </div>
             </div>
 
+            <section class="process-section">
+                <h2 class="section-title">How It Works</h2>
+
+                <div class="process-container">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="icon-wrapper icon-register">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <h3 class="step-title">1. Register</h3>
+                        <p class="step-desc">Create your account</p>
+                    </div>
+
+                    <div class="arrow">&rarr;</div>
+
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="icon-wrapper icon-complaint">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+                        <h3 class="step-title">2. Submit Complaint</h3>
+                        <p class="step-desc">Fill the form and submit</p>
+                    </div>
+
+                    <div class="arrow">&rarr;</div>
+
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="icon-wrapper icon-review">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="step-title">3. Department Review</h3>
+                        <p class="step-desc">Complaint is assigned</p>
+                    </div>
+
+                    <div class="arrow">&rarr;</div>
+
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="icon-wrapper icon-updates">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3 class="step-title">4. Get Updates</h3>
+                        <p class="step-desc">Track status in real-time</p>
+                    </div>
+
+                    <div class="arrow">&rarr;</div>
+
+                    <!-- Step 5 -->
+                    <div class="process-step">
+                        <div class="icon-wrapper icon-resolution">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h3 class="step-title">5. Resolution</h3>
+                        <p class="step-desc">Issue is resolved</p>
+                    </div>
+                </div>
+            </section>
+
 
         </div>
 
 
         <div class="footer">
-            <div class="footer-content ">
-                <div>
-                    <img src="/images/logo.svg">
-                    <p>
-                        Building a better tomorrow by <br> resolving today.
-                    </p>
+            <!-- ================= Footer ================= -->
+
+            <footer class="footer">
+
+                <div class="footer-container">
+
+                    <!-- About -->
+
+                    <div class="footer-box">
+
+                        <h2>ResolveHub</h2>
+
+                        <p>
+                            ResolveHub is a Complaint Management Portal that enables citizens
+                            to submit, track, and manage complaints efficiently. Our goal is
+                            to provide transparent and faster complaint resolution.
+                        </p>
+
+                    </div>
+
+                    <!-- Quick Links -->
+
+                    <div id="footer" class="footer-box">
+
+                        <h3>Quick Links</h3>
+
+                        <ul>
+
+                            <li><a href="#">Home</a></li>
+
+                            <li><a href="login.html">Login</a></li>
+
+                            <li><a href="register.html">Register</a></li>
+
+                            <li><a href="track.html">Track Complaint</a></li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Contact -->
+
+                    <div id="footer" class="footer-box">
+
+                        <h3>Contact Us</h3>
+
+                        <p><i class="fa-solid fa-location-dot"></i> Indore, Madhya Pradesh</p>
+
+                        <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+
+                        <p><i class="fa-solid fa-envelope"></i> support@resolvehub.com</p>
+
+                    </div>
+
+                    <!-- Social -->
+
+                    <div id="footer" class="footer-box">
+
+                        <h3>Follow Us</h3>
+
+                        <div class="social-icons">
+
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                            <a href="#"><i class="fab fa-github"></i></a>
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div>
-                    <p>Quicks links</p>
-                    <ul>
-                        <li>Home</li>
-                        <li>Services</li>
-                        <li>Track Complaint</li>
-                        <li>About Us</li>
-                    </ul>
+
+                <hr>
+
+                <div id="footer" class="footer-bottom">
+
+                    <p>© 2026 ResolveHub | Complaint Management Portal | All Rights Reserved.</p>
+
                 </div>
-                <div>
-                    <P>Resourses</P>
-                    <ul>
-                        <li>FAQ</li>
-                        <li>User Guide</li>
-                        <li>Privacy Policy</li>
-                        <li>Terms & Conditions </li>
-                    </ul>
-                </div>
-                <div>
-                    <p>contact us</p>
-                    <ul>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            1800-0000-5513
-                        </li>
-                        <li>
-                            <i class="fa-regular fa-envelope"></i>
-                            support@Resolvehub.gov.in
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Sage University, Kailod Kartal,<br>
-                            Rau Bypass Road, Indore(M.P)
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+            </footer>
+
+            <script defer src="index.js"></script>
         </div>
-
-
-    </div>
 </body>
 
 </html>
